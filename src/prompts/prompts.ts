@@ -33,21 +33,21 @@ const experienceFilters: CheckboxQuestion = {
   type: 'checkbox',
   name: 'experiences',
   message: 'Select experience filters',
-  choices: Object.values(QueryValues.experience).map((e) => ({ name: e })),
+  choices: Object.keys(QueryValues.experience).map((e) => ({ name: e })),
 };
 
 const jobTypeFilters: CheckboxQuestion = {
   type: 'checkbox',
   name: 'jobTypes',
   message: 'Select job type filters',
-  choices: Object.values(QueryValues.jobType).map((j) => ({ name: j })),
+  choices: Object.keys(QueryValues.jobType).map((j) => ({ name: j })),
 };
 
 const locationFilters: CheckboxQuestion = {
   type: 'checkbox',
   name: 'locations',
   message: 'Select location filters',
-  choices: Object.values(QueryValues.location).map((l) => ({ name: l })),
+  choices: Object.keys(QueryValues.location).map((l) => ({ name: l })),
 };
 
 export const prompts = [

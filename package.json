@@ -3,9 +3,10 @@
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "npx tsc --build --clean",
-    "start": ""
+    "build": "npx tsc --build",
+    "start": "npm run build && node --experimental-specifier-resolution=node build/index.js"
   },
   "dependencies": {
     "boxen": "^7.0.0",

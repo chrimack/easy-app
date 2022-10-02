@@ -1,3 +1,4 @@
+import { Answers } from './answers';
 import { FilterParams } from './filter-params';
 import {
   ExperienceValues,
@@ -7,6 +8,7 @@ import {
 } from './query-values';
 
 export {
+  Answers,
   ExperienceValues,
   FilterParams,
   JobTypeValues,
