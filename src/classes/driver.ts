@@ -120,6 +120,14 @@ export class Driver {
     await this.driver.wait(this.waitHelper, 30 * SECOND);
   }
 
+  async waitASecond() {
+    await this.delay(SECOND);
+  }
+
+  async holdYourHorse() {
+    await this.delay(2 * SECOND);
+  }
+
   private hideElementHelper = (id: string) =>
     document.querySelector(`#${id}`)?.setAttribute('style', 'display: none');
 
