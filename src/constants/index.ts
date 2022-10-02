@@ -1,6 +1,7 @@
 import { Attributes } from './attributes';
 import { ClassNames } from './class-names';
 import { Errors } from './errors';
+import { Form } from './form';
 import { FormHeaders } from './form-headers';
 import { IDs } from './ids';
 import { Logs } from './logs';
@@ -16,6 +17,7 @@ export {
   Attributes,
   ClassNames,
   Errors,
+  Form,
   FormHeaders,
   IDs,
   Logs,

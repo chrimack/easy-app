@@ -1,5 +1,6 @@
 import { By, until, WebDriver, WebElement } from 'selenium-webdriver';
-import { IDs, SECOND, Selectors } from '../constants';
+
+import { SECOND, Selectors } from '../constants';
 import { getDriver } from '../driver';
 
 export class Driver {

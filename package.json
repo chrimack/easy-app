@@ -8,7 +8,6 @@
     "start": ""
   },
   "dependencies": {
-    "@types/selenium-webdriver": "^4.1.5",
     "boxen": "^7.0.0",
     "chalk": "^5.0.1",
     "inquirer": "^9.1.2",
@@ -25,5 +24,9 @@
   "bugs": {
     "url": "https://github.com/chrimack/easy-app/issues"
   },
-  "homepage": "https://github.com/chrimack/easy-app#readme"
+  "homepage": "https://github.com/chrimack/easy-app#readme",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.2",
+    "@types/selenium-webdriver": "^4.1.5"
+  }
 }

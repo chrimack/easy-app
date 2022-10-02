@@ -1,4 +1,5 @@
 import { By, WebElement } from 'selenium-webdriver';
+
 import {
   Attributes,
   ClassNames,
@@ -37,6 +38,22 @@ export class Navigator {
     } catch (error) {
       Logger.logError(Errors.APPLY_NOT_FOUND);
       return Result.skipped;
+    }
+  }
+
+  async getFormContainer() {
+    try {
+      const container = await this.driver.getFirstElementByClassname(
+        ClassNames.EasyApplyContent,
+        30 * SECOND
+      );
+
+      if (container === undefined)
+        return Logger.logError(Errors.FORM_NOT_FOUND);
+
+      return container;
+    } catch (error) {
+      console.error(error);
     }
   }
 
