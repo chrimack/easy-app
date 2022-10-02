@@ -7,6 +7,7 @@ import { Logs } from './logs';
 import { Options } from './options';
 import { Phrases } from './options';
 import { Selectors } from './selectors';
+import { QueryKeys, QueryValues } from './query-params';
 import { URLs } from './urls';
 
 const SECOND = 1000;
@@ -22,5 +23,7 @@ export {
   Phrases,
   SECOND,
   Selectors,
+  QueryKeys,
+  QueryValues,
   URLs,
 };

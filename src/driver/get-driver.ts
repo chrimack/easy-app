@@ -1,7 +1,7 @@
 import { Builder } from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome';
 
-const getDriver = async () => {
+export const getDriver = async () => {
   try {
     const service = new chrome.ServiceBuilder(
       '../../chromedriver/chromedriver'
@@ -18,5 +18,3 @@ const getDriver = async () => {
     throw new Error('Driver failed');
   }
 };
-
-export const driver = await getDriver();
