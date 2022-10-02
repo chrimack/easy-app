@@ -7,8 +7,8 @@ import {
 export interface FilterParams {
   keywords: string;
   filters: {
-    experience: (keyof ExperienceValues)[];
-    jobType: (keyof JobTypeValues)[];
-    location: (keyof LocationValues)[];
+    experiences: (keyof ExperienceValues)[];
+    jobTypes: (keyof JobTypeValues)[];
+    locations: (keyof LocationValues)[];
   };
 }

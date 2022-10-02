@@ -171,6 +171,12 @@ export class Navigator {
     }
   }
 
+  async start(username: string, password: string) {
+    await this.goToLinkedIn();
+    await this.goToSignInPage();
+    await this.login(username, password);
+  }
+
   private async hasErrors() {
     try {
       const errors = await this.driver.getElementsByClassname(

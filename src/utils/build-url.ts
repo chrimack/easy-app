@@ -7,22 +7,22 @@ export const buildUrl = (params: FilterParams) => {
   url.searchParams.append(QueryKeys.easyApply, 'true');
   url.searchParams.append(QueryKeys.keywords, params.keywords);
 
-  const { experience, jobType, location } = params.filters;
+  const { experiences, jobTypes, locations } = params.filters;
 
-  if (experience.length) {
-    const filters = experience.map((x) => QueryValues.experience[x]);
+  if (experiences.length) {
+    const filters = experiences.map((x) => QueryValues.experience[x]);
 
     url.searchParams.append(QueryKeys.experience, filters.join(','));
   }
 
-  if (jobType.length) {
-    const filters = jobType.map((x) => QueryValues.jobType[x]);
+  if (jobTypes.length) {
+    const filters = jobTypes.map((x) => QueryValues.jobType[x]);
 
     url.searchParams.append(QueryKeys.jobType, filters.join(','));
   }
 
-  if (location.length) {
-    const filters = location.map((x) => QueryValues.location[x]);
+  if (locations.length) {
+    const filters = locations.map((x) => QueryValues.location[x]);
 
     url.searchParams.append(QueryKeys.location, filters.join(','));
   }

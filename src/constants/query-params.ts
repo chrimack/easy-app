@@ -9,10 +9,11 @@ export const QueryKeys = {
 };
 
 export const QueryValues: Values = {
-  location: {
-    'On-site': '1',
-    Remote: '2',
-    Hybrid: '3',
+  experience: {
+    Internship: '1',
+    'Entry Level': '2',
+    Associate: '3',
+    'Mid-Senior': '4',
   },
   jobType: {
     'Full-time': 'F',
@@ -22,10 +23,9 @@ export const QueryValues: Values = {
     Volunteer: 'V',
     Internship: 'I',
   },
-  experience: {
-    Internship: '1',
-    'Entry Level': '2',
-    Associate: '3',
-    'Mid-Senior': '4',
+  location: {
+    'On-site': '1',
+    Remote: '2',
+    Hybrid: '3',
   },
 };
