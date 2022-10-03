@@ -75,24 +75,6 @@ export class Navigator {
     }
   }
 
-  async getPageByNumber(pageNumber: number) {
-    try {
-      const pages = await this.getPages();
-
-      for (const page of pages) {
-        const button = await page.findElement(By.css(Selectors.Button));
-        const aria = await button.getAttribute(Attributes.AriaLabel);
-
-        if (aria === `Page ${pageNumber}`) return button;
-      }
-
-      return null;
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  }
-
   async goToLinkedIn() {
     try {
       await this.driver.get(URLs.Home);
@@ -103,6 +85,21 @@ export class Navigator {
       console.error(error);
       this.driver.quit();
     }
+  }
+
+  async goToNextPage(currentPageNumber: number) {
+    const next = currentPageNumber + 1;
+    const nextPage = await this.getPageByNumber(next);
+
+    if (nextPage === null) return null;
+
+    await this.driver.click(nextPage);
+    Logger.logInfo(`clicked page ${next}`);
+
+    await this.driver.waitASecond();
+
+    // after navigating to the next page, the nextPage element becomes stale
+    return this.getPageByNumber(next);
   }
 
   async goToSignInPage() {
@@ -188,6 +185,24 @@ export class Navigator {
       return false;
     } catch (error) {
       return false;
+    }
+  }
+
+  private async getPageByNumber(pageNumber: number) {
+    try {
+      const pages = await this.getPages();
+
+      for (const page of pages) {
+        const button = await page.findElement(By.css(Selectors.Button));
+        const aria = await button.getAttribute(Attributes.AriaLabel);
+
+        if (aria === `Page ${pageNumber}`) return button;
+      }
+
+      return null;
+    } catch (error) {
+      console.error(error);
+      return null;
     }
   }
 

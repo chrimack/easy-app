@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "npx tsc --build",
+    "clean": "npx tsc --build --clean",
     "start": "npm run build && node --experimental-specifier-resolution=node build/index.js"
   },
   "dependencies": {

@@ -1,8 +1,14 @@
+import {
+  ExperienceValues,
+  JobTypeValues,
+  LocationValues,
+} from './query-values';
+
 export interface Answers {
   username: string;
   password: string;
   keywords: string;
-  experiences: string[];
-  jobTypes: string[];
-  locations: string[];
+  experiences: (keyof ExperienceValues)[];
+  jobTypes: (keyof JobTypeValues)[];
+  locations: (keyof LocationValues)[];
 }
