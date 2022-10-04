@@ -63,6 +63,7 @@ export class ApplicationHandler {
   }
 
   async getContinueButton() {
+    const emptyResult = { button: null, isSubmit: false };
     try {
       const buttons = await this.container.findElements(
         By.css(Selectors.Button)
@@ -79,8 +80,11 @@ export class ApplicationHandler {
           return { button, isSubmit: false };
         }
       }
+
+      return emptyResult;
     } catch (error) {
       console.error(error);
+      return emptyResult;
     }
   }
 
@@ -88,12 +92,12 @@ export class ApplicationHandler {
     try {
       const headers = await this.container.findElements(By.css(Selectors.H3));
       const header = await headers.at(0)?.getText();
-      if (header === undefined)
-        return Logger.logError(Errors.ELEMENT_NOT_FOUND);
+      if (header === undefined) throw new Error(Errors.ELEMENT_NOT_FOUND);
 
       return header;
     } catch (error) {
       console.error(error);
+      return '';
     }
   }
 
@@ -105,6 +109,7 @@ export class ApplicationHandler {
       return inputs;
     } catch (error) {
       console.error(error);
+      return [];
     }
   }
 
@@ -128,6 +133,24 @@ export class ApplicationHandler {
       console.error(error);
       return [];
     }
+  }
+
+  async handleContinue() {
+    const { button, isSubmit } = await this.getContinueButton();
+
+    if (button === null) throw new Error(Errors.CONTINUE_NOT_FOUND);
+
+    if (isSubmit) {
+      await this.unCheckFollow();
+
+      // TODO: just for testing
+      await this.closeApplication();
+      return isSubmit;
+      // delete above
+    }
+
+    await this.driver.click(button);
+    return isSubmit;
   }
 
   async processRadioInput(input: WebElement) {

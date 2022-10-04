@@ -1,5 +1,7 @@
 import boxen, { Options } from 'boxen';
 import chalk, { ChalkInstance } from 'chalk';
+import { Logs } from '../constants';
+import { Result } from '../interfaces';
 
 export class Logger {
   static logError(msg: string) {
@@ -8,6 +10,11 @@ export class Logger {
 
   static logInfo(msg: string) {
     console.log(this.info(msg));
+  }
+
+  static logResult(result: Result) {
+    if (result.isSkipped) this.logWarning(Logs.Skipped);
+    if (result.isSubmitted) this.logSuccess(Logs.Applied);
   }
 
   static logSuccess(msg: string) {

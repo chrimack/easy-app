@@ -125,7 +125,7 @@ export class Driver {
     await this.delay(SECOND);
   }
 
-  async holdYourHorse() {
+  async holdYourHorses() {
     await this.delay(2 * SECOND);
   }
 

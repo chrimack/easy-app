@@ -75,6 +75,24 @@ export class Navigator {
     }
   }
 
+  async getPageByNumber(pageNumber: number) {
+    try {
+      const pages = await this.getPages();
+
+      for (const page of pages) {
+        const button = await page.findElement(By.css(Selectors.Button));
+        const aria = await button.getAttribute(Attributes.AriaLabel);
+
+        if (aria === `Page ${pageNumber}`) return button;
+      }
+
+      return null;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
   async goToLinkedIn() {
     try {
       await this.driver.get(URLs.Home);
@@ -174,6 +192,17 @@ export class Navigator {
     await this.login(username, password);
   }
 
+  async startApplication(job: WebElement) {
+    await this.driver.click(job);
+    job.getText().then((title) => Logger.appStarted(title));
+
+    await this.driver.holdYourHorses();
+    const result = await this.clickEasyApply();
+
+    Logger.logResult(result);
+    return result;
+  }
+
   private async hasErrors() {
     try {
       const errors = await this.driver.getElementsByClassname(
@@ -185,24 +214,6 @@ export class Navigator {
       return false;
     } catch (error) {
       return false;
-    }
-  }
-
-  private async getPageByNumber(pageNumber: number) {
-    try {
-      const pages = await this.getPages();
-
-      for (const page of pages) {
-        const button = await page.findElement(By.css(Selectors.Button));
-        const aria = await button.getAttribute(Attributes.AriaLabel);
-
-        if (aria === `Page ${pageNumber}`) return button;
-      }
-
-      return null;
-    } catch (error) {
-      console.error(error);
-      return null;
     }
   }
 

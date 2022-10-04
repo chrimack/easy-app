@@ -6,6 +6,7 @@ import {
   LocationValues,
   QueryValues,
 } from './query-values';
+import { Result } from './result';
 
 export {
   Answers,
@@ -14,4 +15,5 @@ export {
   JobTypeValues,
   LocationValues,
   QueryValues,
+  Result,
 };
