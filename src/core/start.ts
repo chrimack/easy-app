@@ -25,7 +25,15 @@ export async function start(answers: Answers) {
   let totalJobsApplied = 0;
 
   while (hasAnotherPage) {
-    const totalForPage = await processPage(currentPage, totalJobsApplied);
+    if (currentPage === null) {
+      Logger.logError('you f#$%ed up');
+      return;
+    }
+
+    const totalForPage = await navigator.processPage(
+      currentPage,
+      totalJobsApplied
+    );
     const nextPage = await navigator.goToNextPage(currentPageNumber);
 
     currentPageNumber++;

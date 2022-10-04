@@ -1,3 +1,4 @@
 import { buildUrl } from './build-url';
+import { debug } from './debug';
 
-export { buildUrl };
+export { buildUrl, debug };

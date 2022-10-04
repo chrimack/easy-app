@@ -8,7 +8,5 @@ export async function debug(username: string, password: string) {
 
   await driver.waitASecond();
 
-  await navigator.searchDebugJob();
-
-  await navigator.clickEasyApply();
+  await navigator.debugJob();
 }
