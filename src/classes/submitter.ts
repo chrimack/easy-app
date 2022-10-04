@@ -34,8 +34,8 @@ export class Submitter {
 
     const fn =
       this.handlers[header] === undefined
-        ? this.handlers.default
-        : this.handlers[header];
+        ? this.handlers.default.bind(this)
+        : this.handlers[header].bind(this);
 
     result = await fn(header);
 
