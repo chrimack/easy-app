@@ -11,14 +11,14 @@ const validate = (value: string) => {
 const username: InputQuestion = {
   type: 'input',
   name: 'username',
-  message: 'Enter your LinkedIn email',
+  message: 'Enter your LinkedIn email:',
   validate,
 };
 
 const password: PasswordQuestion = {
   type: 'password',
   name: 'password',
-  message: 'Enter you LinkedIn password',
+  message: 'Enter your LinkedIn password:',
   mask: '*',
 };
 
@@ -32,21 +32,21 @@ const keywords: InputQuestion = {
 const experienceFilters: CheckboxQuestion = {
   type: 'checkbox',
   name: 'experiences',
-  message: 'Select experience filters',
+  message: 'Select experience filters:',
   choices: Object.keys(QueryValues.experience).map((e) => ({ name: e })),
 };
 
 const jobTypeFilters: CheckboxQuestion = {
   type: 'checkbox',
   name: 'jobTypes',
-  message: 'Select job type filters',
+  message: 'Select job type filters:',
   choices: Object.keys(QueryValues.jobType).map((j) => ({ name: j })),
 };
 
 const locationFilters: CheckboxQuestion = {
   type: 'checkbox',
   name: 'locations',
-  message: 'Select location filters',
+  message: 'Select location filters:',
   choices: Object.keys(QueryValues.location).map((l) => ({ name: l })),
 };
 
